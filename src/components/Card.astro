@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  isFeatured?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  isFeatured = false
+} = Astro.props;
+---
+
+<article class={isFeatured ? "card featured" : "card"}>
+  <img src={image} alt={title} />
+
+  <h2>{title}</h2>
+
+  <p>{description}</p>
+
+  {isFeatured && <strong>⭐ Proyecto destacado</strong>}
+</article>

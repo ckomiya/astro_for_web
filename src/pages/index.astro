@@ -1,17 +1,33 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
+export const prerender = false;
+
+const theme = Astro.cookies.get("theme")?.value ?? "light";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle="Laboratorio SSR">
+  <h1>Laboratorio de Cookies + SSR</h1>
+
+  <p>
+    Tema actual:
+    <strong>{theme}</strong>
+  </p>
+
+  <ThemeToggle />
+
+  <hr />
+
+  <p>
+    <a href="/login">
+      Ir al login
+    </a>
+  </p>
+
+  <p>
+    <a href="/dashboard">
+      Ir al dashboard
+    </a>
+  </p>
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+// 1. Obtener todos los artículos
+const posts = await getCollection('blog');
+
+// 2. Filtrar los borradores
+const publishedPosts = posts.filter(
+  (post) => post.data.isDraft === false
+);
+
+// 3. Ordenar por fecha: más reciente primero
+const sortedPosts = publishedPosts.sort(
+  (a, b) =>
+    b.data.pubDate.valueOf() -
+    a.data.pubDate.valueOf()
+);
+---
+
+<BlogLayout title="Blog">
+  <h1>Mi Blog</h1>
+
+  <p>
+    Estos artículos vienen de una Content Collection.
+  </p>
+
+  <ul>
+    {
+      sortedPosts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}`}>
+            <h2>{post.data.title}</h2>
+          </a>
+
+          <p>{post.data.description}</p>
+
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('es-PE')}
+          </time>
+        </li>
+      ))
+    }
+  </ul>
+</BlogLayout>

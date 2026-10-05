@@ -1,0 +1,49 @@
+---
+import CopyButton from "../components/CopyButton.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vanilla JavaScript Demo</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>Vanilla JavaScript en Astro</h1>
+
+      <section>
+        <h2>1. Copy Button</h2>
+
+        <p>
+          Este botón copia un comando al portapapeles.
+        </p>
+
+        <CopyButton />
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>2. Dark Mode</h2>
+
+        <p>
+          Este botón modifica la clase del elemento
+          <code>body</code>.
+        </p>
+
+        <ThemeToggle />
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>3. Formulario</h2>
+
+        <ContactForm />
+      </section>
+    </main>
+  </body>
+</html>

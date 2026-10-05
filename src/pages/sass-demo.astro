@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SassDemo from "../components/SassDemo.astro";
+
+export const prerender = false;
+---
+
+<BaseLayout pageTitle="Probando Sass">
+
+  <h1>Probando Sass en Astro</h1>
+
+  <p>
+    Este componente utiliza un bloque
+    <code>&lt;style lang="scss"&gt;</code>.
+  </p>
+
+  <SassDemo />
+
+</BaseLayout>

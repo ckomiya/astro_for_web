@@ -1,0 +1,46 @@
+---
+import BlogPostLayout from "../layouts/BlogPostLayout.astro";
+---
+
+<BlogPostLayout title="Aprendiendo Astro">
+
+  <!-- Va al <head> -->
+  <meta
+    slot="head-meta"
+    name="description"
+    content="Mi primer artículo sobre Astro"
+  />
+
+  <!-- Va al <article> -->
+  <h1>Aprendiendo Astro</h1>
+
+  <p>
+    Astro utiliza una arquitectura orientada al contenido.
+  </p>
+
+  <p>
+    Estamos aprendiendo cómo funcionan los Layouts y los Slots.
+  </p>
+
+  <!-- Va al <aside> -->
+  <div slot="sidebar">
+
+    <h3>Contenido relacionado</h3>
+
+    <ul>
+      <li>
+        <a href="/">Inicio</a>
+      </li>
+
+      <li>
+        <a href="/about">Sobre nosotros</a>
+      </li>
+
+      <li>
+        <a href="/team">Nuestro equipo</a>
+      </li>
+    </ul>
+
+  </div>
+
+</BlogPostLayout>

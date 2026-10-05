@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const prerender = false;
+---
+
+<BaseLayout pageTitle="CSS en Astro">
+
+  <h1>Probando CSS en Astro</h1>
+
+  <p>
+    Esta página sirve para experimentar con
+    Scoped CSS y CSS Global.
+  </p>
+
+  <section class="card">
+
+    <h2>Scoped CSS</h2>
+
+    <p>
+      Este contenido pertenece a la página.
+    </p>
+
+    <button>
+      Probar botón
+    </button>
+
+  </section>
+
+  <section class="card">
+
+    <h2>Otro componente</h2>
+
+    <p>
+      Los estilos de cada componente permanecen aislados.
+    </p>
+
+  </section>
+
+</BaseLayout>
+
+<style>
+  h1 {
+    color: purple;
+    font-size: 3rem;
+  }
+
+  .card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  .card h2 {
+    color: darkblue;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>

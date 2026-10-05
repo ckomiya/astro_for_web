@@ -1,0 +1,54 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+// 1. Obtener todos los artículos
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  // 2. Crear una ruta para cada artículo
+  return posts.map((post) => ({
+    params: {
+      slug: post.id,
+    },
+
+    props: {
+      post,
+    },
+  }));
+}
+
+// 3. Obtener el artículo correspondiente a esta URL
+const { post } = Astro.props;
+
+// 4. Obtener el autor al que apunta la referencia
+const author = await getEntry(post.data.author);
+
+// 5. Convertir el Markdown en contenido renderizable
+const { Content } = await render(post);
+---
+
+<BlogLayout title={post.data.title}>
+  <article>
+    <h1>{post.data.title}</h1>
+
+    <p>
+      <strong>Categoría:</strong>
+      {post.data.category}
+    </p>
+
+    <p>
+      <strong>Fecha:</strong>
+      {post.data.pubDate.toLocaleDateString('es-PE')}
+    </p>
+
+    <p>
+      <strong>Autor:</strong>
+      {author?.data.name}
+    </p>
+
+    <hr />
+
+    <Content />
+  </article>
+</BlogLayout>

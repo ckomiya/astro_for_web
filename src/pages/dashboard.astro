@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const prerender = false;
+
+const { user } = Astro.locals;
+---
+
+<BaseLayout pageTitle="Dashboard">
+  <h1>Dashboard</h1>
+
+  {
+    user ? (
+      <>
+        <p>
+          Bienvenido, <strong>{user.name}</strong>
+        </p>
+
+        <p>
+          Rol: <strong>{user.role}</strong>
+        </p>
+
+        <form method="POST" action="/api/logout">
+          <button type="submit">
+            Cerrar sesión
+          </button>
+        </form>
+      </>
+    ) : (
+      <>
+        <p>No tienes una sesión activa.</p>
+
+        <a href="/login">
+          Ir al login
+        </a>
+      </>
+    )
+  }
+</BaseLayout>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111111"></rect>
+
+  <circle cx="950" cy="150" r="180" fill="#ff5a5f" opacity="0.8"></circle>
+
+  <circle cx="250" cy="500" r="220" fill="#5c6cff" opacity="0.8"></circle>
+
+  <text x="600" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white">
+    Astro SEO
+  </text>
+
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#dddddd">
+    Metadata &amp; Open Graph
+  </text>
+</svg>

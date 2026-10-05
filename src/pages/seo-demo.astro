@@ -1,0 +1,69 @@
+---
+import SEO from '../components/SEO.astro';
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+
+    <SEO
+      title="SEO Demo"
+      description="Página de demostración para aprender SEO y metadata en Astro."
+      article={false}
+    />
+  </head>
+
+  <body>
+    <main>
+      <h1>SEO y Metadata en Astro</h1>
+
+      <p>
+        Esta página utiliza el componente reutilizable
+        <code>SEO.astro</code>.
+      </p>
+
+      <h2>Estamos utilizando:</h2>
+
+      <ul>
+        <li>Title dinámico</li>
+        <li>Meta description</li>
+        <li>Canonical URL</li>
+        <li>Open Graph</li>
+        <li>Twitter Card</li>
+      </ul>
+
+      <p>
+        Abre las herramientas de desarrollador y revisa
+        el contenido de <code>&lt;head&gt;</code>.
+      </p>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    background: white;
+    min-height: 100vh;
+  }
+
+  code {
+    padding: 0.15rem 0.35rem;
+    background: #eee;
+    border-radius: 4px;
+  }
+</style>

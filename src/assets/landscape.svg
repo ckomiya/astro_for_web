@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87CEEB"></stop>
+      <stop offset="100%" stop-color="#EAF7FF"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Cielo -->
+  <rect width="1200" height="675" fill="url(#sky)"></rect>
+
+  <!-- Sol -->
+  <circle cx="930" cy="150" r="75" fill="#FFD166"></circle>
+
+  <!-- Montaña posterior -->
+  <path d="M0 520
+       L300 280
+       L500 470
+       L720 220
+       L1200 520
+       V675
+       H0
+       Z" fill="#5C7F67"></path>
+
+  <!-- Montaña frontal -->
+  <path d="M0 570
+       L330 390
+       L540 560
+       L800 350
+       L1200 570
+       V675
+       H0
+       Z" fill="#355C4D"></path>
+
+  <!-- Suelo -->
+  <rect y="570" width="1200" height="105" fill="#29483D"></rect>
+</svg>

@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{title}</title>
+
+    <slot name="head-meta" />
+  </head>
+
+  <body>
+
+    <header>
+      <h1>Mi Blog</h1>
+    </header>
+
+    <main>
+      <article>
+        <slot />
+      </article>
+
+      <aside>
+        <slot name="sidebar" />
+      </aside>
+    </main>
+
+  </body>
+</html>
+
+<style>
+  header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 40px;
+  }
+
+  article {
+    line-height: 1.6;
+  }
+
+  aside {
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+  }
+</style>

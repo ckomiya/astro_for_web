@@ -1,0 +1,45 @@
+---
+layout: ../layouts/BlogLayout.astro
+title: "Mi primer artículo interactivo"
+author: "Christian"
+date: "2026-10-02"
+---
+
+import Alert from "../components/Alert.astro";
+import SalesChart from "../components/SalesChart.astro";
+
+# Informe de ventas
+
+Este artículo está escrito utilizando **MDX**.
+
+Hasta aquí parece exactamente igual que Markdown.
+
+## Nuestro mensaje
+
+<Alert type="success">
+  Las ventas de este trimestre crecieron considerablemente.
+</Alert>
+
+## Nuestro gráfico
+
+A diferencia de un archivo `.md`, aquí podemos insertar directamente un componente Astro:
+
+<SalesChart
+  year={2026}
+  data={[10, 20, 50, 90]}
+/>
+
+<Alert type="warning">
+  Este mensaje también es un componente Astro.
+</Alert>
+
+## Conclusión
+
+MDX nos permite combinar:
+
+- Markdown
+- HTML
+- componentes Astro
+- JavaScript
+
+en un mismo archivo.

@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+button {
+  font: inherit;
+}
+
+/* Tema oscuro: la clase "dark" la pone BaseLayout según la cookie "theme" */
+html.dark body {
+  background: #111;
+  color: #f4f4f4;
+}
+
+html.dark main a {
+  color: #8ab4ff;
+}
+
+html.dark input,
+html.dark textarea {
+  background: #222;
+  color: inherit;
+  border: 1px solid #555;
+}
+
+html.dark button {
+  background: #333;
+  color: inherit;
+  border: 1px solid #555;
+}

@@ -1,0 +1,229 @@
+---
+import { Image, Picture } from 'astro:assets';
+
+import landscape from '../assets/landscape.svg';
+import logo from '../assets/logo.svg';
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro Images Demo</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>Astro Image Optimization</h1>
+
+      <p>
+        Esta página demuestra cómo Astro trabaja con
+        <code>&lt;Image /&gt;</code> y <code>&lt;Picture /&gt;</code>.
+      </p>
+
+      <!-- ================================================= -->
+      <!-- 1. IMAGE BÁSICO                                  -->
+      <!-- ================================================= -->
+
+      <section>
+        <h2>1. Image — imagen local</h2>
+
+        <p>
+          La imagen está dentro de <code>src/assets/</code>.
+          Astro puede analizarla durante el build.
+        </p>
+
+        <Image
+          src={landscape}
+          alt="Paisaje de demostración"
+        />
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- 2. WIDTH Y HEIGHT / CLS                          -->
+      <!-- ================================================= -->
+
+      <section>
+        <h2>2. Image — dimensiones</h2>
+
+        <p>
+          Definimos explícitamente el ancho y alto para que el
+          navegador pueda reservar el espacio antes de cargar la imagen.
+        </p>
+
+        <Image
+          src={landscape}
+          alt="Paisaje con dimensiones definidas"
+          width={1200}
+          height={675}
+        />
+
+        <p>
+          Esto ayuda a evitar el
+          <strong>Cumulative Layout Shift (CLS)</strong>.
+        </p>
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- 3. FORMAT                                        -->
+      <!-- ================================================= -->
+
+      <section>
+        <h2>3. Image — formato WebP</h2>
+
+        <p>
+          Podemos pedir a Astro que genere la imagen en un formato
+          moderno como WebP.
+        </p>
+
+        <Image
+          src={landscape}
+          alt="Paisaje convertido a WebP"
+          width={1200}
+          height={675}
+          format="webp"
+        />
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- 4. DENSITIES                                     -->
+      <!-- ================================================= -->
+
+      <section>
+        <h2>4. Image — diferentes densidades</h2>
+
+        <p>
+          Aquí usamos el logo para mostrar cómo Astro puede generar
+          variantes para distintas densidades de pantalla.
+        </p>
+
+        <Image
+          src={logo}
+          alt="Logo de demostración"
+          densities={[1, 2]}
+        />
+
+        <p>
+          El navegador puede elegir la versión más adecuada
+          según la densidad de la pantalla.
+        </p>
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- 5. PICTURE                                       -->
+      <!-- ================================================= -->
+
+      <section>
+        <h2>5. Picture — imágenes responsive</h2>
+
+        <p>
+          <code>&lt;Picture /&gt;</code> permite generar diferentes
+          versiones de una imagen para distintos tamaños de pantalla.
+        </p>
+
+        <Picture
+          src={landscape}
+          alt="Paisaje responsive"
+          widths={[480, 800, 1200]}
+          sizes="(max-width: 768px) 100vw, 1200px"
+          formats={['webp']}
+        />
+      </section>
+
+
+      <!-- ================================================= -->
+      <!-- 6. COMPARACIÓN                                   -->
+      <!-- ================================================= -->
+
+      <section>
+        <h2>6. ¿Qué aprendimos?</h2>
+
+        <ul>
+          <li>
+            <strong>&lt;img&gt;</strong> → HTML tradicional.
+          </li>
+
+          <li>
+            <strong>&lt;Image /&gt;</strong> → Astro optimiza la imagen.
+          </li>
+
+          <li>
+            <strong>&lt;Picture /&gt;</strong> → permite manejar
+            diferentes versiones responsive.
+          </li>
+
+          <li>
+            <strong>width + height</strong> → ayuda a evitar CLS.
+          </li>
+
+          <li>
+            <strong>densities</strong> → diferentes densidades de pantalla.
+          </li>
+
+          <li>
+            <strong>widths + sizes</strong> → diferentes tamaños
+            de imagen según el dispositivo.
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
+
+
+<style>
+  body {
+    margin: 0;
+    background: #f5f5f5;
+    color: #222;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  main {
+    width: min(100% - 2rem, 1000px);
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+  }
+
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+  }
+
+  section h2 {
+    margin-top: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+
+  code {
+    padding: 0.15rem 0.35rem;
+    background: #eee;
+    border-radius: 4px;
+  }
+
+  li {
+    margin: 0.6rem 0;
+  }
+</style>

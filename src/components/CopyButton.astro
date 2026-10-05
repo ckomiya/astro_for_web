@@ -1,0 +1,36 @@
+---
+const textToCopy = "npm install astro";
+---
+
+<button class="copy-btn" data-content={textToCopy}>
+  Copy Code
+</button>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".copy-btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const content = button.dataset.content;
+
+      if (!content) return;
+
+      await navigator.clipboard.writeText(content);
+
+      button.innerText = "Copied!";
+
+      setTimeout(() => {
+        button.innerText = "Copy Code";
+      }, 2000);
+    });
+  });
+</script>
+
+<style>
+  .copy-btn {
+    padding: 0.6rem 1rem;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>

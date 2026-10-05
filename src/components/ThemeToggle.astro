@@ -1,0 +1,20 @@
+<button id="theme-toggle" type="button">
+  Cambiar tema
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#theme-toggle");
+
+  button?.addEventListener("click", () => {
+    const currentTheme =
+      document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
+
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    document.cookie = `theme=${newTheme}; path=/; max-age=31536000; SameSite=Lax`;
+
+    window.location.reload();
+  });
+</script>

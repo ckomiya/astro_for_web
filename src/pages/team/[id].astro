@@ -1,0 +1,54 @@
+---
+export async function getStaticPaths() {
+  const employees = [
+    {
+      id: "alice",
+      name: "Alice Johnson",
+      role: "Developer"
+    },
+    {
+      id: "bob",
+      name: "Bob Smith",
+      role: "Designer"
+    },
+    {
+      id: "charlie",
+      name: "Charlie Brown",
+      role: "Manager"
+    }
+  ];
+
+  return employees.map((employee) => ({
+    params: {
+      id: employee.id
+    },
+    props: {
+      employee
+    }
+  }));
+}
+
+const { id } = Astro.params;
+const { employee } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{employee.name}</title>
+  </head>
+
+  <body>
+    <h1>Perfil del empleado</h1>
+
+    <h2>{employee.name}</h2>
+
+    <p>ID: {id}</p>
+
+    <p>Cargo: {employee.role}</p>
+
+    <hr />
+
+    <a href="/team">← Volver al equipo</a>
+  </body>
+</html>

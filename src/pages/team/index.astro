@@ -1,0 +1,46 @@
+---
+const title = "Nuestro equipo";
+
+const employees = [
+  {
+    id: "alice",
+    name: "Alice Johnson",
+    role: "Developer"
+  },
+  {
+    id: "bob",
+    name: "Bob Smith",
+    role: "Designer"
+  },
+  {
+    id: "charlie",
+    name: "Charlie Brown",
+    role: "Manager"
+  }
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <h1>{title}</h1>
+
+    <p>Selecciona un empleado:</p>
+
+    <ul>
+      {employees.map((employee) => (
+        <li>
+          <a href={`/team/${employee.id}`}>
+            {employee.name} — {employee.role}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/">← Volver al inicio</a>
+  </body>
+</html>

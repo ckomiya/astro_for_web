@@ -1,0 +1,89 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+}
+
+const {
+  title,
+  description = 'Una descripción predeterminada de mi sitio Astro.',
+  image = '/social-preview.svg',
+  article = false
+} = Astro.props;
+
+const siteName = 'Mi Sitio Astro';
+
+// URL canónica de la página actual
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site
+);
+
+// Título completo
+const fullTitle = `${title} | ${siteName}`;
+
+// URL absoluta para Open Graph
+const imageURL = new URL(image, Astro.site);
+---
+
+<title>{fullTitle}</title>
+
+<meta
+  name="description"
+  content={description}
+/>
+
+<!-- URL canónica -->
+<link
+  rel="canonical"
+  href={canonicalURL}
+/>
+
+<!-- Open Graph -->
+<meta
+  property="og:type"
+  content={article ? 'article' : 'website'}
+/>
+
+<meta
+  property="og:url"
+  content={canonicalURL}
+/>
+
+<meta
+  property="og:title"
+  content={fullTitle}
+/>
+
+<meta
+  property="og:description"
+  content={description}
+/>
+
+<meta
+  property="og:image"
+  content={imageURL}
+/>
+
+<!-- Twitter / X -->
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+/>
+
+<meta
+  name="twitter:title"
+  content={fullTitle}
+/>
+
+<meta
+  name="twitter:description"
+  content={description}
+/>
+
+<meta
+  name="twitter:image"
+  content={imageURL}
+/>
